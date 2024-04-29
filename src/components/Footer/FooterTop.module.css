@@ -1,0 +1,36 @@
+.container:first-child {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--sixthBackground);
+  padding: 2.5rem;
+  border-bottom: 1px solid var(--secondryBorderColor);
+}
+
+@media (max-width: 782px) {
+  .container {
+    flex-direction: column;
+  }
+  .container ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+}
+.footer__help li,
+.footer__forms li,
+.footer__settings li {
+  font-size: 1.3rem;
+  color: var(--fourthTextColor);
+  cursor: pointer;
+  margin-bottom: 2rem;
+  -o-transition: var(--colorTransition);
+  -moz-transition: var(--colorTransition);
+  -webkit-transition: var(--colorTransition);
+  transition: var(--colorTransition);
+}
+.footer__help li:hover,
+.footer__forms li:hover,
+.footer__settings li:hover {
+  color: var(--fifthTextColor);
+}

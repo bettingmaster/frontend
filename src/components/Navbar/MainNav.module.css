@@ -1,0 +1,149 @@
+.main_nav {
+  padding-block: 2rem;
+  background-color: var(--greenBackground);
+  z-index: 2;
+  position: relative;
+}
+.main_nav__burger,
+.main_nav__alt_logo {
+  display: none;
+}
+.main_nav__burger i {
+  color: var(--secondHoverColor);
+  font-size: 1.5rem;
+}
+.main_nav__burger span {
+  font-size: 1.4rem;
+  margin-left: 0.6rem;
+  color: var(--whiteTextColor);
+}
+.main_nav__burger:hover i {
+  color: var(--whiteTextColor);
+}
+.main_nav__burger:hover span {
+  color: var(--secondHoverColor);
+}
+.main_nav__content,
+.main_nav__settings {
+  display: flex;
+  gap: 2.5rem;
+}
+.main_nav__content {
+  font-size: 1.4rem;
+  color: var(--whiteTextColor);
+}
+.main_nav__content li:hover {
+  color: var(--hoverColor);
+  position: relative;
+}
+.main_nav__content li:nth-of-type(2)::after {
+  content: "";
+  position: absolute;
+  background-color: var(--yellowEffect);
+  width: 100%;
+  height: 0.2rem;
+  bottom: -2.5rem;
+  left: 0;
+}
+.active {
+  border-bottom: 2px solid var(--yellowEffect);
+}
+.main_nav__settings {
+  align-items: center;
+}
+.main_nav__search {
+  color: var(--hoverColor);
+}
+.main_nav__join button,
+.main_nav__login button {
+  padding: 0.5rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: var(--yellowEffect);
+  color: var(--secondBackground);
+  border: none;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  text-decoration: none;
+}
+.main_nav__burger *,
+.main_nav__content li,
+.main_nav__settings .main_nav__search i,
+.main_nav__login button {
+  -o-transition: var(--colorTransition);
+  -moz-transition: var(--colorTransition);
+  -webkit-transition: var(--colorTransition);
+  transition: var(--colorTransition);
+}
+.main_nav__join button {
+  -o-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.main_nav__join button:hover {
+  background-color: var(--whiteTextColor);
+}
+.main_nav__login button {
+  background-color: transparent;
+  color: var(--hoverColor);
+}
+.main_nav__content li,
+.main_nav__search,
+.main_nav__burger,
+.main_nav__logo {
+  cursor: pointer;
+}
+.main_nav__content li:first-of-type:hover,
+.main_nav__search:hover,
+.main_nav__login button:hover {
+  color: var(--secondHoverColor);
+}
+@media (max-width: 964px) {
+  .main_nav__burger {
+    display: block;
+  }
+  .main_nav__content {
+    order: 2;
+  }
+  .main_nav__logo {
+    order: 3;
+  }
+  .main_nav__settings {
+    order: 4;
+  }
+  .main_nav__content li:first-of-type,
+  .main_nav__search {
+    display: none;
+  }
+  .main_nav__content li:nth-of-type(2):hover {
+    color: var(--secondHoverColor);
+  }
+  .main_nav__join button {
+    background-color: transparent;
+    color: var(--hoverColor);
+  }
+  .main_nav__join button:hover {
+    background-color: transparent;
+    color: var(--secondHoverColor);
+  }
+}
+@media (max-width: 782px) {
+  .main_nav__logo > img:first-child {
+    display: none;
+  }
+  .main_nav__alt_logo {
+    display: block;
+    padding-left: 9rem;
+  }
+  .main_nav__settings {
+    gap: 1.8rem;
+  }
+  .main_nav__join button,
+  .main_nav__login button {
+    padding: 0;
+  }
+  .main_nav__content li:nth-of-type(2)::after {
+    bottom: -2.8rem;
+  }
+}

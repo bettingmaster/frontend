@@ -1,0 +1,109 @@
+.grid_games {
+  display: grid;
+  grid-template-columns: 8px repeat(7, 2fr) 8px;
+  gap: 1rem;
+}
+
+.main_content__championship {
+  overflow-x: auto;
+}
+.main_content__championship__head {
+  background-color: var(--fourthBackground);
+  color: var(--tableHeadColor);
+  padding-block: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.main_content__championship__head *,
+.main_content__championship__body {
+  text-align: center;
+  align-items: center;
+}
+.main_content__championship__head__text {
+  grid-column: 2 / 6;
+}
+.main_content__championship__body {
+  padding-block: 1rem;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  font-weight: 650;
+  border-bottom: 1px solid var(--mainBorderColor);
+}
+.main_content__championship__body__text {
+  grid-column: 2 / 6;
+  border-right-width: 1px;
+  border-right-color: var(--mainBorderColor);
+  border-right-style: solid;
+  padding-right: 2rem;
+  color: var(--secondryTextColor);
+  cursor: pointer;
+}
+.main_content__championship__body__data,
+.main_content__championship__body__name,
+.main_content__championship__body__insights {
+  -o-transition: var(--colorTransition);
+  -moz-transition: var(--colorTransition);
+  -webkit-transition: var(--colorTransition);
+  transition: var(--colorTransition);
+}
+.main_content__championship__body__text:hover
+  .main_content__championship__body__data,
+.main_content__championship__body__text:hover
+  .main_content__championship__body__name,
+.main_content__championship__body__text:hover
+  .main_content__championship__body__insights {
+  color: var(--hoverColor);
+}
+.main_content__championship__body__name p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 10rem;
+}
+.main_content__championship__body__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+  font-size: 1.4rem;
+  border-radius: 0.2rem;
+  color: var(--yellowEffect);
+  -o-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+.main_content__championship__body__num:nth-of-type(5) {
+  padding-right: 1rem;
+  border-right-width: 1px;
+  border-right-color: var(--mainBorderColor);
+  border-right-style: solid;
+}
+.main_content__championship__body__num:hover {
+  background-color: var(--thirdHoverColor);
+}
+.main_content > .text {
+  display: none;
+}
+@media (max-width: 964px) {
+  .main_content > .text {
+    display: block;
+  }
+  .main_content > .text .text__body {
+    display: flex;
+  }
+  .main_content > .text .features .text__body__item {
+    padding: unset;
+    gap: unset;
+  }
+}
+@media (max-width: 782px) {
+  .main_content > .text .text__body {
+    flex-wrap: wrap;
+  }
+  .main_content__championship__head {
+    text-align: center;
+    align-items: center;
+  }
+}

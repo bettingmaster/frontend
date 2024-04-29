@@ -1,0 +1,15 @@
+.content {
+  position: relative;
+}
+
+.main_content {
+  width: 70%;
+  height: 85vh;
+  overflow-y: scroll;
+}
+@media (max-width: 964px) {
+  .main_content {
+    width: 100%;
+    overflow-y: initial;
+  }
+}

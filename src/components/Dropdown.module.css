@@ -1,0 +1,30 @@
+.dropdown {
+  position: relative;
+}
+
+.dropdownHeader {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.dropdownIcon {
+  margin-left: 0.5rem;
+}
+
+.dropdownOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #444;
+}

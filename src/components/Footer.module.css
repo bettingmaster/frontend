@@ -1,0 +1,22 @@
+.main_content__footer {
+  background-color: var(--sixthBackground);
+  padding: 2.5rem;
+  border-bottom: 1px solid var(--secondryBorderColor);
+}
+.main_content__footer h2 {
+  font-size: 1.4rem;
+  color: var(--secondryTextColor);
+  margin-bottom: 2rem;
+  line-height: 4rem;
+}
+@media (max-width: 782px) {
+  .main_content__footer {
+    flex-direction: column;
+  }
+  .main_content__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+}
