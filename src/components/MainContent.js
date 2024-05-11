@@ -1,31 +1,32 @@
 "use client";
-import { useState } from "react";
 import React from "react";
 import MainHeadContent from "./MainContent/MainHeadContent";
-import styles from "./MainContent.module.css";
 import ShowGames from "@/components/ShowGames";
 import Footer from "./Footer";
 import Rightbar from "./Rightbar";
-import { DataProvider } from "@/context/DataContext";
+import MainNavContent from "./MainContent/MainNavContent";
+import Navbar from "./Navbar";
+import styles from "./MainContent.module.css";
+import { DataProvider } from "../context/DataContext";
+import { SelectedGamesProvider } from "../context/SelectedGameContext";
 
 export default function MainContent() {
   return (
-    <DataProvider
-      value={{
-        handleSearch: handleSearch,
-        gamesInfo,
-        setgamesInfo,
-        groupedGames,
-      }}
-    >
+    <>
       <main className={styles.content}>
         <section className={styles.main_content}>
-          <MainHeadContent />
-          <ShowGames />
-          <Footer />
-          <Rightbar />
+          <DataProvider>
+            <SelectedGamesProvider>
+              <Navbar />
+              <MainHeadContent />
+              <MainNavContent />
+              <ShowGames />
+              <Rightbar />
+              <Footer />
+            </SelectedGamesProvider>
+          </DataProvider>
         </section>
       </main>
-    </DataProvider>
+    </>
   );
 }

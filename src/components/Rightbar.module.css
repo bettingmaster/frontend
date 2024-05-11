@@ -1,9 +1,9 @@
 .side_bar {
   position: fixed;
   right: 0;
-  top: 12vh;
+  top: 0;
   width: 30%;
-  height: 85vh;
+  height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: var(--fifthBackground);

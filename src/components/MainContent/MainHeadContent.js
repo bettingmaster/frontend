@@ -4,13 +4,13 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 
-export default function MainHeadContent({ handleSearch }) {
+export default function MainHeadContent() {
   return (
     <header
       className={`container flex-between-center ${styles.main_content__head}`}
     >
       <div className={`flex-between-center ${styles.main_content__left_head}`}>
-        <SearchBar handleSearch={handleSearch} />
+        <SearchBar />
       </div>
       <Link href="/allgames">
         <div

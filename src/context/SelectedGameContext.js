@@ -1,22 +1,23 @@
-import { createContext, useState } from "react";
+"use client";
+import { createContext, useState, useContext } from "react";
 
-export const SelectedGamesContext = createContext({
-  selectedGames: [],
-  addSelectedGame: (game) => {},
-});
+const SelectedGamesContext = createContext();
 
-export const SelectedGamesProvider = ({ children }) => {
+const SelectedGamesProvider = ({ children }) => {
   const [selectedGames, setSelectedGames] = useState([]);
 
-  const addSelectedGame = (game) => {
-    setSelectedGames([...selectedGames, game]);
-  };
-
   return (
-    <SelectedGamesContext.Provider value={{ selectedGames, addSelectedGame }}>
+    <SelectedGamesContext.Provider value={{ selectedGames, setSelectedGames }}>
       {children}
     </SelectedGamesContext.Provider>
   );
 };
 
-export default SelectedGamesContext;
+function useSelectedGame() {
+  const context = useContext(SelectedGamesContext);
+  if (context === undefined)
+    throw new Error("DataContext was used outside of the PostProvider");
+  return context;
+}
+
+export { SelectedGamesProvider, useSelectedGame };

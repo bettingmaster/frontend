@@ -84,7 +84,7 @@ export default function SignUp({ onClose }) {
   return (
     <>
       <Flex justifyContent="center" alignItems="center">
-        <Box rounded="md" m="auto" p="6" shadow="md" width="95%">
+        <Box rounded="md" m="auto" p="6" width="95%" color="#fff">
           <Center>
             <Heading as="h3" size="lg" mb="6" fontWeight="600">
               Sign Up
@@ -97,10 +97,11 @@ export default function SignUp({ onClose }) {
                 isInvalid={!!errors.firstName}
                 isRequired
               >
-                <FormLabel fontWeight="600" fontSize="lg">
+                <FormLabel htmlFor="firstname" fontWeight="600" fontSize="lg">
                   First Name
                 </FormLabel>
                 <Input
+                  id="firstname"
                   type="text"
                   name="firstName"
                   placeholder="First Name"
@@ -116,10 +117,11 @@ export default function SignUp({ onClose }) {
                 isInvalid={!!errors.lastName}
                 isRequired
               >
-                <FormLabel fontWeight="600" fontSize="lg">
+                <FormLabel htmlFor="lastname" fontWeight="600" fontSize="lg">
                   Last Name
                 </FormLabel>
                 <Input
+                  id="lastname"
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
@@ -135,10 +137,11 @@ export default function SignUp({ onClose }) {
                 isInvalid={!!errors.username}
                 isRequired
               >
-                <FormLabel fontWeight="600" fontSize="lg">
+                <FormLabel htmlFor="username" fontWeight="600" fontSize="lg">
                   Username
                 </FormLabel>
                 <Input
+                  id="username"
                   type="username"
                   name="username"
                   placeholder="Username"
@@ -169,12 +172,15 @@ export default function SignUp({ onClose }) {
                 isInvalid={!!errors.phoneNumber}
                 isRequired
               >
-                <FormLabel fontWeight="600" fontSize="lg">
+                <FormLabel htmlFor="phonenumber" fontWeight="600" fontSize="lg">
                   Phone Number
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftAddon>+355</InputLeftAddon>
+                  <InputLeftAddon fontWeight={500} color="#000">
+                    +355
+                  </InputLeftAddon>
                   <Input
+                    id="phonenumber"
                     type="tel"
                     placeholder="phone number"
                     name="phoneNumber"
@@ -189,11 +195,12 @@ export default function SignUp({ onClose }) {
                 isInvalid={!!errors.password}
                 isRequired
               >
-                <FormLabel fontWeight="600" fontSize="lg">
+                <FormLabel htmlFor="password" fontWeight="600" fontSize="lg">
                   Password
                 </FormLabel>
                 <InputGroup size="md">
                   <Input
+                    id="password"
                     pr="4.5rem"
                     type={show ? "text" : "password"}
                     placeholder="Enter password"
@@ -213,11 +220,16 @@ export default function SignUp({ onClose }) {
                 id="confirmPassword"
                 isInvalid={!!errors.confirmPassword}
               >
-                <FormLabel fontWeight="600" fontSize="lg">
+                <FormLabel
+                  htmlFor="confirmPassword"
+                  fontWeight="600"
+                  fontSize="lg"
+                >
                   Confirm Password
                 </FormLabel>
                 <InputGroup size="md">
                   <Input
+                    id="confirmPassword"
                     pr="4.5rem"
                     type={showConfirm ? "text" : "password"}
                     name="confirmPassword"

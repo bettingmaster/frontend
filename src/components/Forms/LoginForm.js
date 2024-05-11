@@ -65,15 +65,18 @@ const LoginForm = () => {
   return (
     <>
       <Flex justifyContent="center" alignItems="center">
-        <Box p="6" rounded="md" shadow="md" width="95%">
+        <Box p="6" rounded="md" width="95%" color="#fff">
           <Heading as="h3" size="lg" mb="6">
             Log in to Your Account
           </Heading>
           <form onSubmit={handleSubmit}>
             <Stack spacing={5}>
               <FormControl isRequired id="username">
-                <FormLabel fontSize="xl">Username</FormLabel>
+                <FormLabel htmlFor="username" fontSize="xl">
+                  Username
+                </FormLabel>
                 <Input
+                  id="username"
                   type="username"
                   name="username"
                   value={formData.email}
@@ -84,8 +87,11 @@ const LoginForm = () => {
                 />
               </FormControl>
               <FormControl isRequired id="password">
-                <FormLabel fontSize="xl">Password</FormLabel>
+                <FormLabel htmlFor="password" fontSize="xl">
+                  Password
+                </FormLabel>
                 <Input
+                  id="password"
                   type="password"
                   name="password"
                   value={formData.password}

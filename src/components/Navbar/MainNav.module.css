@@ -5,7 +5,8 @@
   position: relative;
 }
 .main_nav__burger,
-.main_nav__alt_logo {
+.main_nav__alt_logo,
+.main_nav__bet {
   display: none;
 }
 .main_nav__burger i {
@@ -112,10 +113,11 @@
   .main_nav__settings {
     order: 4;
   }
-  .main_nav__content li:first-of-type,
+  .main_nav__content a:nth-child(1),
   .main_nav__search {
     display: none;
   }
+
   .main_nav__content li:nth-of-type(2):hover {
     color: var(--secondHoverColor);
   }
@@ -134,7 +136,7 @@
   }
   .main_nav__alt_logo {
     display: block;
-    padding-left: 9rem;
+    padding-bottom: 5px;
   }
   .main_nav__settings {
     gap: 1.8rem;
@@ -145,5 +147,65 @@
   }
   .main_nav__content li:nth-of-type(2)::after {
     bottom: -2.8rem;
+  }
+  .main_nav__content {
+    display: flex;
+    width: 55%;
+    gap: 10rem; /* Adjust gap between items */
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+  }
+
+  .main_nav__content li {
+    display: inline-block; /* Display items inline */
+  }
+
+  /* Additional styles for positioning logo between Live and Bet */
+  .main_nav__logo {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 45%;
+    transform: translateX(-50%); /* Center logo horizontally */
+  }
+}
+
+@media (max-width: 410px) {
+  .main_nav__logo > img:first-child {
+    display: none;
+  }
+  .main_nav__alt_logo {
+    display: block;
+    padding-bottom: 5px;
+  }
+  .main_nav__settings {
+    gap: 1.8rem;
+  }
+  .main_nav__join button,
+  .main_nav__login button {
+    padding: 0;
+  }
+  .main_nav__content li:nth-of-type(2)::after {
+    bottom: -2.8rem;
+  }
+  .main_nav__content {
+    display: flex;
+    width: 55%;
+    gap: 7rem; /* Adjust gap between items */
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+  }
+
+  .main_nav__content li {
+    display: inline-block; /* Display items inline */
+  }
+
+  /* Additional styles for positioning logo between Live and Bet */
+  .main_nav__logo {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 43%;
+    transform: translateX(-50%); /* Center logo horizontally */
   }
 }

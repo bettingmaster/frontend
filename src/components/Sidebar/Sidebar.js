@@ -14,18 +14,8 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   Link,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
 } from "@chakra-ui/react";
-import {
-  FaHome,
-  FaLock,
-  FaUser,
-  FaShoppingCart,
-  FaChevronDown,
-} from "react-icons/fa";
+import { FaHome, FaLock, FaUser, FaShoppingCart } from "react-icons/fa";
 
 const dataList = [
   { icon: FaHome, label: "Home", href: "/" },
@@ -37,8 +27,8 @@ const dataList = [
 const Sidebar = ({ isOpen, onClose, btnRef }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
   };
 
   const filteredList = dataList.filter((item) =>
@@ -60,7 +50,7 @@ const Sidebar = ({ isOpen, onClose, btnRef }) => {
         size={{ base: "xs", sm: "sm", md: "md", lg: "lg", xl: "xl" }}
       >
         <DrawerOverlay>
-          <DrawerContent>
+          <DrawerContent backgroundColor="#1d212a" color="#fff">
             <DrawerCloseButton />
             <DrawerHeader
               mt={5}
@@ -76,6 +66,7 @@ const Sidebar = ({ isOpen, onClose, btnRef }) => {
                   <SearchIcon fontSize={14} />
                 </InputLeftElement>
                 <Input
+                  name="input"
                   fontSize={14}
                   width="75%"
                   height="28px"

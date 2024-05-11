@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ShowGamesCardItem from "./ShowGamesCardItem";
 import ShowGamesHead from "./ShowGamesHead";

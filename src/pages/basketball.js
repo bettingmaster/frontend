@@ -1,12 +1,10 @@
 import React from "react";
-
 import MainContent from "@/components/MainContent";
 
-export default function livegames() {
+export default function basketball() {
   return (
     <>
-      <h1>Live Games</h1>
-
+      <h1>BasketBall</h1>
       <MainContent />
     </>
   );
