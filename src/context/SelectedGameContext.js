@@ -16,7 +16,9 @@ const SelectedGamesProvider = ({ children }) => {
 function useSelectedGame() {
   const context = useContext(SelectedGamesContext);
   if (context === undefined)
-    throw new Error("DataContext was used outside of the PostProvider");
+    throw new Error(
+      "SelectedGamesContext was used outside of the PostProvider"
+    );
   return context;
 }
 

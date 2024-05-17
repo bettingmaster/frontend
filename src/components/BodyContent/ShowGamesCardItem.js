@@ -18,6 +18,7 @@ const ShowGamesCardItem = ({ game }) => {
         updatedSelectedGames[existingGameIndex] = {
           ...existingGame,
           odd: odd,
+          name: name,
         };
         setSelectedGames(updatedSelectedGames);
       }
@@ -64,22 +65,19 @@ const ShowGamesCardItem = ({ game }) => {
 
         {game.odds.map((odd, idx) => (
           <div
+            onClick={() =>
+              handleSelectGame(
+                game.team1_name,
+                game.team2_name,
+                odd.odd,
+                game.id,
+                odd.name
+              )
+            }
             className={styles.main_content__championship__body__num}
-            key={idx} // Use a unique identifier (e.g., odd.name)
+            key={idx}
           >
-            <button
-              onClick={() =>
-                handleSelectGame(
-                  game.team1_name,
-                  game.team2_name,
-                  odd.odd,
-                  game.id,
-                  odd.name
-                )
-              }
-            >
-              {odd.odd.toFixed(2)}
-            </button>
+            <button>{odd.odd.toFixed(2)}</button>
           </div>
         ))}
       </div>

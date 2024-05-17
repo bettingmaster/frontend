@@ -100,7 +100,6 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import styles from "./MainNav.module.css";
 import ModalComp from "../ModalComp";
 import SignupForm from "../Forms/SignUpForm";
@@ -111,11 +110,14 @@ import { Button, useDisclosure } from "@chakra-ui/react";
 import Sidebar from "../Sidebar/Sidebar";
 import Image from "next/image";
 import BetSlipCard from "../Rightbar/BetSlipCard";
+import { useSelectedGame } from "../../context/SelectedGameContext";
 
 const MainNav = () => {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isBetSlipOpen, setIsBetSlipOpen] = useState(false);
+
+  const { selectedGames } = useSelectedGame();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const router = useRouter();
@@ -138,12 +140,19 @@ const MainNav = () => {
     setIsBetSlipOpen(true); // Toggle betslip visibility
   };
 
+  // console.log("selected", selectedGames);
+
   return (
     <>
       <nav className={`container flex-between-center ${styles.main_nav}`}>
         <div className={styles.main_nav__burger}>
           <i>
-            <Button colorScheme="teal" ref={btnRef} onClick={onOpen}>
+            <Button
+              colorScheme="teal"
+              variant="solid"
+              ref={btnRef}
+              onClick={onOpen}
+            >
               <HamburgerIcon boxSize={10} color="#fff" />
             </Button>
           </i>
@@ -185,8 +194,14 @@ const MainNav = () => {
               Live
             </li>
           </Link>
+
           <li onClick={handleBetClick} className={styles.main_nav__bet}>
             My Bets
+            {selectedGames.length > 0 && (
+              <span className={styles.notificationBadge}>
+                {selectedGames.length}
+              </span>
+            )}
           </li>
         </ul>
         <div className={styles.main_nav__settings}>

@@ -7,23 +7,24 @@ const SearchBar = () => {
   const { searchTerm, searchedGames } = useData;
 
   return (
-    <InputGroup>
-      <InputLeftElement pointerEvents="none">
-        <SearchIcon color="white" />
-      </InputLeftElement>
-      <Input
-        size="lg"
-        focusBorderColor="#126E51"
-        backgroundColor="#404040"
-        _hover={{ color: "inherit" }}
-        variant="filled"
-        type="text"
-        placeholder="Search..."
-        _placeholder={{ color: "inherit" }}
-        value={searchTerm}
-        onChange={searchedGames}
-      />
-    </InputGroup>
+    <div>
+      <InputGroup>
+        <InputLeftElement pointerEvents="none">
+          <SearchIcon boxSize={5} marginTop={2} />
+        </InputLeftElement>
+        <Input
+          borderColor="gray.500"
+          type="text"
+          variant="outline"
+          placeholder="Search..."
+          _placeholder={{ color: "inherit" }}
+          focusBorderColor="green.400"
+          size="lg"
+          value={searchTerm}
+          onChange={searchedGames}
+        />
+      </InputGroup>
+    </div>
   );
 };
 

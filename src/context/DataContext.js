@@ -79,7 +79,7 @@ const DataProvider = ({ children }) => {
       team1_name: "Torino",
       team2_name: "Genoa",
       odds: [
-        { name: "!", odd: 1.8 },
+        { name: "1", odd: 1.8 },
         { name: "X", odd: 3.0 },
         { name: "2", odd: 4.0 },
       ],

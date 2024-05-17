@@ -6,9 +6,9 @@
 .main_content__icons {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-block: 1.5rem;
-  gap: 1.5rem;
+  gap: 3rem;
   overflow-x: auto;
 }
 
@@ -68,4 +68,20 @@
 }
 .main_content__icons li:hover p {
   color: var(--hoverColor);
+}
+
+@media (max-width: 782px) {
+  .main_content__icons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-block: 1.2rem;
+  }
+}
+
+@media (max-width: 410px) {
+  .main_content__icons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-block: 1rem;
+  }
 }

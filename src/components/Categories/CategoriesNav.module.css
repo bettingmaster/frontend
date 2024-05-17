@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #4b5563;
+  color: #fff;
+}
+
+.nav_inside {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.text {
+  color: #ffe418;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  margin: 2px;
+}

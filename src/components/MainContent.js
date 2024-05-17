@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import MainHeadContent from "./MainContent/MainHeadContent";
 import ShowGames from "@/components/ShowGames";
 import Footer from "./Footer";
@@ -18,8 +16,8 @@ export default function MainContent() {
           <DataProvider>
             <SelectedGamesProvider>
               <Navbar />
-              <MainHeadContent />
               <MainNavContent />
+              <MainHeadContent />
               <ShowGames />
               <Rightbar />
               <Footer />
