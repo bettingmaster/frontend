@@ -1,0 +1,26 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+
+export default function NotFound() {
+  const router = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      // router.go(-1);
+      router.push("/");
+    }, 5000);
+  }, []);
+
+  return (
+    <div className="not-found">
+      <h1>Ooops...</h1>
+      <h2>That page cannot be found</h2>
+      <p>
+        Go back to <Link href="/">homepage</Link>
+      </p>
+    </div>
+  );
+}

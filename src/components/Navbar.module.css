@@ -102,7 +102,6 @@
 }
 
 .notificationBadge {
-  /* Badge styles (e.g., background color, position, size) */
   position: absolute;
   top: 1rem;
   background-color: rgb(0, 56, 0);
@@ -163,22 +162,21 @@
   .main_nav__content {
     display: flex;
     width: 55%;
-    gap: 10rem; /* Adjust gap between items */
+    gap: 10rem;
     align-items: center;
-    justify-content: center; /* Center items horizontally */
+    justify-content: center;
   }
 
   .main_nav__content li {
-    display: inline-block; /* Display items inline */
+    display: inline-block;
   }
 
-  /* Additional styles for positioning logo between Live and Bet */
   .main_nav__logo {
     position: absolute;
     top: 30%;
     transform: translateY(-50%);
     left: 45%;
-    transform: translateX(-50%); /* Center logo horizontally */
+    transform: translateX(-50%);
   }
   .notificationBadge {
     right: 12.2rem;
@@ -206,9 +204,9 @@
   .main_nav__content {
     display: flex;
     width: 55%;
-    gap: 7rem; /* Adjust gap between items */
+    gap: 7rem;
     align-items: center;
-    justify-content: center; /* Center items horizontally */
+    justify-content: center;
   }
 
   .main_nav__content li {

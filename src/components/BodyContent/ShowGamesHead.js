@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./ShowGamesCardItem.module.css";
 
-export default function ShowGamesHead({ league }) {
+export default function ShowGamesHead({ tournamentName }) {
   return (
     <div
       className={`${styles.main_content__championship__head} ${styles.grid_games} container`}
     >
-      <p className={styles.main_content__championship__head__text}>{league}</p>
+      <p className={styles.main_content__championship__head__text}>
+        {tournamentName}
+      </p>
       <div className={styles.main_content__championship__head__num1}>1</div>
       <div className={styles.main_content__championship__head__num2}>X</div>
       <div className={styles.main_content__championship__head__num3}>2</div>

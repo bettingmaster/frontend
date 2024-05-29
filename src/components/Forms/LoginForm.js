@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useContext } from "react";
 import {
   Button,
   FormControl,
@@ -17,18 +18,15 @@ import {
   AlertDialogOverlay,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import AuthContext from "@/context/AuthContext";
 
 const LoginForm = () => {
-  // State to manage form input values
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-
-  // State to manage success message display
   const [isOpen, setIsOpen] = useState(false);
-
-  // Router instance
+  const { login } = useContext(AuthContext);
   const router = useRouter();
 
   // Handler to update form input values
@@ -40,24 +38,20 @@ const LoginForm = () => {
     }));
   };
 
-  // Handler to submit the form
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic here to handle form submission
     console.log("Form submitted with data:", formData);
-    // Reset form fields after submission
+    login(username, password);
     setFormData({
       username: "",
       password: "",
     });
-    // Show success message
+
     setIsOpen(true);
   };
 
-  // Close success message
   const onClose = () => setIsOpen(false);
 
-  // Redirect to home page
   const redirectToHome = () => {
     router.push("/profile");
   };
@@ -79,7 +73,7 @@ const LoginForm = () => {
                   id="username"
                   type="username"
                   name="username"
-                  value={formData.email}
+                  value={formData.username}
                   onChange={handleChange}
                   placeholder="Username"
                   fontSize="lg"

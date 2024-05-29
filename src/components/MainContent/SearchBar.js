@@ -1,10 +1,9 @@
 "use client";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useData } from "@/context/DataContext";
 
 const SearchBar = () => {
-  const { searchTerm, searchedGames } = useData;
+  //   const { searchTerm, searchedGames } = useData;
 
   return (
     <div>
@@ -20,8 +19,8 @@ const SearchBar = () => {
           _placeholder={{ color: "inherit" }}
           focusBorderColor="green.400"
           size="lg"
-          value={searchTerm}
-          onChange={searchedGames}
+          //   value={searchTerm}
+          //   onChange={searchedGames}
         />
       </InputGroup>
     </div>

@@ -1,11 +1,26 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
+// import MatchContext from "../context/MatchContext";
 import { FaAngleRight } from "react-icons/fa6";
 import styles from "./ShowGamesCardItem.module.css";
 import { useSelectedGame } from "../../context/SelectedGameContext";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  Spinner,
+} from "@chakra-ui/react";
 
 const ShowGamesCardItem = ({ game }) => {
   const { selectedGames, setSelectedGames } = useSelectedGame();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { odds, loading, error, getAdditionalOdds } = useContext(MatchContext);
 
   const handleSelectGame = (team1_name, team2_name, odd, id, name) => {
     const existingGameIndex = selectedGames.findIndex((game) => game.id === id);
@@ -81,6 +96,43 @@ const ShowGamesCardItem = ({ game }) => {
           </div>
         ))}
       </div>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Additional Odds</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            {loading ? (
+              <Spinner />
+            ) : error ? (
+              <p>Error loading odds: {error.message}</p>
+            ) : (
+              <div>
+                <h2>
+                  {selectedMatch?.team1} vs {selectedMatch?.team2}
+                </h2>
+                <div>
+                  {odds.map((group, index) => (
+                    <div key={index} className={styles.oddsGroup}>
+                      <h3>{group.title}</h3>
+                      <ul>
+                        {group.odds.map((odd, idx) => (
+                          <li key={idx}>{odd}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

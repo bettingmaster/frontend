@@ -1,23 +1,33 @@
-"use client";
-import React from "react";
 import ShowGamesCardItem from "./ShowGamesCardItem";
 import ShowGamesHead from "./ShowGamesHead";
 import styles from "./ShowGamesCardItem.module.css";
 
 const ShowGamesCard = ({ games }) => {
+  console.log("card games", games);
+
   return (
-    <>
-      <article className={styles.main_content__championship}>
-        {Object.entries(games).map(([league, gamesInLeague]) => (
-          <div key={league}>
-            <ShowGamesHead league={league} />
-            {gamesInLeague.map((game) => (
-              <ShowGamesCardItem league={league} key={game.id} game={game} />
-            ))}
-          </div>
-        ))}
-      </article>
-    </>
+    <article className={styles.main_content__championship}>
+      {Object.entries(games).map((tournament) => (
+        <div key={tournament.id}>
+          <ShowGamesHead tournament={tournament} />
+          {tournament.matches.map((match) => (
+            <div key={match.id}>
+              {match.questions.map((question) => (
+                <div key={question.id}>
+                  {question.options.map((option) => (
+                    <ShowGamesCardItem
+                      tournament={tournament}
+                      key={option.id}
+                      match={match}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
+    </article>
   );
 };
 

@@ -1,22 +1,61 @@
 "use client";
-import React, { useState } from "react";
+
+// import axios from "axios";
+import React, { useState, useContext } from "react";
 import styles from "./BetSlipCard.module.css";
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react";
 import { useSelectedGame } from "../../context/SelectedGameContext";
+import AuthContext from "@/context/AuthContext";
 
 export default function BetSlipCard() {
   const [balance, setBalance] = useState(500); // Initial balance
   const [betAmount, setBetAmount] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [isBetting, setIsBetting] = useState(false);
   const { selectedGames, setSelectedGames } = useSelectedGame();
+  const { user } = useContext(AuthContext);
+
+  // user's balance.
+
+  // useEffect(() => {
+  //   const fetchBalance = async () => {
+  //     if (user) {
+  //       try {
+  //         const response = await axios.get('/api/user/balance', {
+  //           headers: {
+  //             Authorization: `Bearer ${user.token}`
+  //           }
+  //         });
+  //         setBalance(response.data.balance);
+  //       } catch (error) {
+  //         setErrorMessage("Failed to fetch balance");
+  //       } finally {
+  //         setLoadingBalance(false);
+  //       }
+  //     }
+  //   };
+
+  //   fetchBalance();
+  // }, [user]);
 
   const handleBetAmountChange = (e) => {
-    setBetAmount(parseFloat(e.target.value));
+    setBetAmount(e.target.value);
     calculateTotal();
   };
 
-  const handlePlaceBet = () => {
+  const handlePlaceBet = async () => {
+    if (!user) {
+      alert("You need to be logged in to place a bet.");
+      return;
+    }
+
     const betAmountFloat = parseFloat(betAmount);
     if (isNaN(betAmountFloat) || betAmountFloat <= 0) {
       setErrorMessage("Please enter a valid bet amount.");
@@ -29,6 +68,8 @@ export default function BetSlipCard() {
     }
 
     setIsBetting(true);
+    // API Integration: Replace the simulated timeout with actual API calls to register the bet on your backend.
+    // Simulate API call
     setTimeout(() => {
       setErrorMessage("");
       setIsBetting(false);
@@ -38,6 +79,31 @@ export default function BetSlipCard() {
       setSelectedGames([]);
     }, 2000);
   };
+
+  //API CALL
+  //   try {
+  //     const response = await axios.post('/api/placeBet', {
+  //       userId: user.id,
+  //       betAmount: betAmountFloat,
+  //       games: selectedGames
+  //     });
+
+  //     if (response.status === 200) {
+  //       setErrorMessage("");
+  //       setIsBetting(false);
+  //       setBalance(balance - betAmountFloat);
+  //       // Show success message in the UI instead of alert
+  //       setSuccessMessage(`Bet placed successfully! Amount: ${betAmountFloat}`);
+  //       setBetAmount("");
+  //       setSelectedGames([]);
+  //     } else {
+  //       throw new Error('Failed to place bet');
+  //     }
+  //   } catch (error) {
+  //     setErrorMessage(error.message || "An error occurred while placing the bet.");
+  //     setIsBetting(false);
+  //   }
+  // };
 
   const removeMatch = (id) => {
     setSelectedGames(selectedGames.filter((match) => match.id !== id));
@@ -57,6 +123,20 @@ export default function BetSlipCard() {
 
   return (
     <div className={styles.container}>
+      {successMessage && (
+        <Alert status="success">
+          <AlertIcon />
+          <AlertTitle mr={2}>Success!</AlertTitle>
+          <AlertDescription>{successMessage}</AlertDescription>
+        </Alert>
+      )}
+      {errorMessage && (
+        <Alert status="error">
+          <AlertIcon />
+          <AlertTitle mr={2}>Error</AlertTitle>
+          <AlertDescription>{errorMessage}</AlertDescription>
+        </Alert>
+      )}
       <div className={styles.title}>
         <div className={styles.header}>
           <div className={styles.betSlipCount}>{countSelectedGames()}</div>

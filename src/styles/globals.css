@@ -32,6 +32,7 @@
   padding: 0;
   outline: none;
   font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 *,
 ::after,
@@ -122,4 +123,13 @@ ul {
 }
 .main-content__fav:hover .main-content__fav__active {
   opacity: 1;
+}
+
+.not-found {
+  text-align: center;
+}
+
+.not-found a {
+  color: #4979ff;
+  text-decoration: underline;
 }
